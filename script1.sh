@@ -29,5 +29,15 @@ else
 	echo "info: eme usage is normal $MEM_USAGE" >> $LOGFILE
 fi
 
+#DISK_check
+
+DISK_USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
+
+if [ "$DISK_USAGE" -gt "$DISK_THRESHOLD" ];
+then
+	echo "Warning: disk usage is more $DISK_USAGE" >> $LOGFILE
+else
+	echo "info: disk usage is $DISK_USAGE" >> $LOGFILE
+fi
 
 
