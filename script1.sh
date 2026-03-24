@@ -9,7 +9,7 @@ TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
 #CPU CHECK
 
-CPU_USAGE=$(top -bn1 | grep "cpu(s)" | awk '{print 100 - $8}')
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print 100 - $8}')
 
 if [ "$CPU_USAGE" -gt "$CPU_THRESHOLD" ];
 then
