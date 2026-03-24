@@ -4,6 +4,7 @@ LOGFILE="/var/log/server-health.log"
 CPU_THRESHOLD=75
 MEM_THRESHOLD=75
 DISK_THRESHOLD=75
+HOSTNAME=$(hostaname)
 
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
@@ -26,7 +27,7 @@ if [ "$MEM_USAGE" -gt "$MEM_THRESHOLD" ];
 then
 	echo "Warning: mem usage is high $MEM_USAGE" >> $LOGFILE
 else
-	echo "info: eme usage is normal $MEM_USAGE" >> $LOGFILE
+	echo "$HOSTANAME | info: eme usage is normal $MEM_USAGE" >> $LOGFILE
 fi
 
 #DISK_check
@@ -37,7 +38,7 @@ if [ "$DISK_USAGE" -gt "$DISK_THRESHOLD" ];
 then
 	echo "Warning: disk usage is more $DISK_USAGE" >> $LOGFILE
 else
-	echo "info: disk usage is $DISK_USAGE" >> $LOGFILE
+	echo " $HOSTNAME | info: disk usage is $DISK_USAGE" >> $LOGFILE
 fi
 
 
